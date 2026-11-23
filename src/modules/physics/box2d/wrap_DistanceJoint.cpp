@@ -80,6 +80,36 @@ int w_DistanceJoint_getDamping(lua_State *L)
 	return 1;
 }
 
+int w_DistanceJoint_setMinLength(lua_State *L)
+{
+	DistanceJoint *t = luax_checkdistancejoint(L, 1);
+	float arg1 = (float)luaL_checknumber(L, 2);
+	t->setMinLength(arg1);
+	return 0;
+}
+
+int w_DistanceJoint_getMinLength(lua_State *L)
+{
+	DistanceJoint *t = luax_checkdistancejoint(L, 1);
+	lua_pushnumber(L, t->getMinLength());
+	return 1;
+}
+
+int w_DistanceJoint_setMaxLength(lua_State *L)
+{
+	DistanceJoint *t = luax_checkdistancejoint(L, 1);
+	float arg1 = (float)luaL_checknumber(L, 2);
+	t->setMaxLength(arg1);
+	return 0;
+}
+
+int w_DistanceJoint_getMaxLength(lua_State *L)
+{
+	DistanceJoint *t = luax_checkdistancejoint(L, 1);
+	lua_pushnumber(L, t->getMaxLength());
+	return 1;
+}
+
 static const luaL_Reg w_DistanceJoint_functions[] =
 {
 	{ "setLength", w_DistanceJoint_setLength },
@@ -88,6 +118,10 @@ static const luaL_Reg w_DistanceJoint_functions[] =
 	{ "getStiffness", w_DistanceJoint_getStiffness },
 	{ "setDamping", w_DistanceJoint_setDamping },
 	{ "getDamping", w_DistanceJoint_getDamping },
+	{ "setMinLength", w_DistanceJoint_setMinLength },
+	{ "getMinLength", w_DistanceJoint_getMinLength },
+	{ "setMaxLength", w_DistanceJoint_setMaxLength },
+	{ "getMaxLength", w_DistanceJoint_getMaxLength },
 	{ 0, 0 }
 };
 

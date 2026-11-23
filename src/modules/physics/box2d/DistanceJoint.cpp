@@ -78,6 +78,26 @@ float DistanceJoint::getDamping() const
 	return joint->GetDamping();
 }
 
+void DistanceJoint::setMinLength(float length)
+{
+	joint->SetMinLength(Physics::scaleDown(length));
+}
+
+float DistanceJoint::getMinLength() const
+{
+	return Physics::scaleUp(joint->GetMinLength());
+}
+
+void DistanceJoint::setMaxLength(float length)
+{
+	joint->SetMaxLength(Physics::scaleDown(length));
+}
+
+float DistanceJoint::getMaxLength() const
+{
+	return Physics::scaleUp(joint->GetMaxLength());
+}
+
 
 } // box2d
 } // physics

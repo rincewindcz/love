@@ -78,6 +78,26 @@ public:
 	 **/
 	float getDamping() const;
 
+	/**
+	 * Sets the minimum distance between the two bodies.
+	 **/
+	void setMinLength(float length);
+
+	/**
+	 * Gets the minimum distance between the two bodies.
+	 **/
+	float getMinLength() const;
+
+	/**
+	 * Sets the maximum distance between the two bodies.
+	 **/
+	void setMaxLength(float length);
+
+	/**
+	 * Gets the maximum distance between the two bodies.
+	 **/
+	float getMaxLength() const;
+
 private:
 	// The Box2D DistanceJoint object.
 	b2DistanceJoint *joint;
